@@ -8,6 +8,7 @@ RM = /bin/rm
 # Setup
 
 CFLAGS = -g -Wall -fPIC
+LDADD=-lrt
 
 LIB_SGP4_DIR  = Libraries/sgp4
 LIB_SHP_DIR   = Libraries/shapelib
@@ -30,7 +31,7 @@ TEST_CASES_DIR = $(TEST_DIR)/cases
 default: gtg
 
 gtg: $(LIB_SGP4) $(LIB_SHP) $(LIB_GTG)
-	$(CPP) $(LIB_GTG) $(LIB_SGP4) $(LIB_SHP) -o $@
+	$(CPP) $(LIB_GTG) $(LIB_SGP4) $(LIB_SHP) -o $@ $(LDADD)
 
 # Program Library
 
